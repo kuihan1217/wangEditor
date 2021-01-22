@@ -28,8 +28,8 @@ function post<T extends Object>(url: string, option: PostOptionType<T>): XMLHttp
     const xhr = new XMLHttpRequest()
     xhr.open('POST', url)
 
-    // 超时，默认 10s
-    xhr.timeout = option.timeout || 10 * 1000
+    // 超时，默认 1分钟
+    xhr.timeout = option.timeout || 1000 * 60 * 1
     xhr.ontimeout = () => {
         console.error('wangEditor - 请求超时')
         option.onTimeout && option.onTimeout(xhr)
